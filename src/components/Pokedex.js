@@ -4,7 +4,9 @@ import PokemonImage from "./PokemonImage";
 import "../styles/index.scss";
 
 const Pokedex = (props) => {
-  const { pokemons ,loading} = props;
+  const { pokemon, pokemons ,loading} = props;
+
+
   return (
     <div>
       <div className="header">
@@ -23,9 +25,12 @@ const Pokedex = (props) => {
 
           <div className="info-Pokemon">
             <div className="info-header">
-              {pokemons.map((pokemon, idx) => {
-                return <Pokemon pokemon={pokemon} key={pokemon.name} />;
-              })}
+            
+            {pokemons.map((pokemon, idx) => {
+             if(idx<1){
+              return <Pokemon pokemon={pokemon} key={pokemon.name} />};
+            })}
+           
             </div>
             <div></div>
           </div>

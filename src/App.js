@@ -64,9 +64,10 @@ export default function App() {
       setLoading(false);
       return;
     } else {
+     setPokemons([result]);
       setPage(0);
       setTotal(1);
-      setPokemons([result]);
+   
     }
     setLoading(false);
     setSearching(false);

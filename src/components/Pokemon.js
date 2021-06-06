@@ -7,18 +7,16 @@ const Pokemon = (props) => {
   const { favoritePokemons, updateInfoPokemon } = useContext(DataPokemon);
   const { ImagePokemons, updateImagePokemon } = useContext(DataPokemon);
   return (
-    <div
-      className="pokemon-card"
-    >
+    <div className="pokemon-card"  >
       <div className="pokemon-img-card">
         <img
-          className="pokemon-img"
+        
           src={ImagePokemons[0]}
         />
       </div>
       <div className="card-body">
         <div className="card-top">
-
+       <p> {favoritePokemons[0]}</p>
         </div>
         <div className="card-medium">
           <div className="pokemon-type">

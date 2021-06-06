@@ -10,7 +10,7 @@ export default function PokeImage(props) {
   const redHeart = "❤️";
   const blackHeart = "🖤";
   const heart = favoritePokemons.includes(pokemon.name) ? redHeart : blackHeart;
-  console.log(favoritePokemons.includes(pokemon.name));
+
   const clickHeart = async (e) => {
     e.preventDefault();
     updateInfoPokemon(pokemon.name);
@@ -21,7 +21,7 @@ export default function PokeImage(props) {
     <div className="pokemon-image-card">
       <div className="pokemon-img-card">
         <img
-          onClick={() => setClickPokemon(pokemon.id)}
+
           src={pokemon.sprites.front_default}
           alt={pokemon.name}
           className="pokemon-img"
