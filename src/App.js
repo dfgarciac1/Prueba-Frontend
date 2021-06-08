@@ -159,7 +159,7 @@ export default function App() {
           No se encontro el Pokemon que buscabas
           <img
            alt="Error 404 "
-           src=""
+           src="https://i.imgur.com/PaOpjm2.jpg"
           />
         </div>
       ) : (
