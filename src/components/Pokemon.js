@@ -4,8 +4,12 @@ import DataPokemon from "../context/DataPokemon";
 
 const Pokemon = (props) => {
   const { pokemon } = props;
-  const { favoritePokemons, updateInfoPokemon } = useContext(DataPokemon);
-  const { ImagePokemons, updateImagePokemon } = useContext(DataPokemon);
+  const { favoritePokemons,  } = useContext(DataPokemon);
+  const { ImagePokemons } = useContext(DataPokemon);
+  const { idPokemon } = useContext(DataPokemon);
+  const { typePokemon} = useContext(DataPokemon);	
+  const { abilityPokemon} = useContext(DataPokemon);	
+
   return (
     <div className="pokemon-card"  >
       <div className="pokemon-img-card">
@@ -16,11 +20,16 @@ const Pokemon = (props) => {
       </div>
       <div className="card-body">
         <div className="card-top">
-       <p> {favoritePokemons[0]}</p>
+        
+       <p> id: {idPokemon } </p>
+       <p> name: {favoritePokemons}</p>
         </div>
         <div className="card-medium">
           <div className="pokemon-type">
-          
+          <p>type: {typePokemon}</p>
+          </div>
+          <div className="pokemon-ability">
+          <p>ability: {abilityPokemon}</p>
           </div>
         
         </div>

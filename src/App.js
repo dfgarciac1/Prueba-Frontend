@@ -15,8 +15,9 @@ export default function App() {
   const [searching, setSearching] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [imagePokemon, setImagePokemon] = useState([]);
-  //const [idPokemon, setidPokemon] = useState([]);
-
+  const [idPokemon, setidPokemon] = useState([]);
+  const [typePokemon, setTypePokemon] = useState([]);
+  const [abilityPokemon, setAbilityPokemon] = useState([]);
   const localStorageKey = "favorite_pokemon";
 
   const fetchPokemon = async () => {
@@ -28,11 +29,13 @@ export default function App() {
       });
       const results = await Promise.all(Pokemons);
       setPokemons(results);
-      setTotal(Math.ceil(Pokemons.count / 25));
-      setNotFound(false);
-      setLoading(false);
+    setLoading(false);
+     setTotal(125);
+   setNotFound(false);
     } catch (err) {}
   };
+  
+  
   const loadFavoritePokemons = () => {
     const pokemons =
       JSON.parse(window.localStorage.getItem(localStorageKey)) || [];
@@ -96,7 +99,7 @@ export default function App() {
     window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
   };
 
-{/* const updateIdPokemon = (name) => {
+ const updateIdPokemon = (name) => {
     const updated = [...idPokemon];
     const isFavorite = updated.indexOf(name);
     if (isFavorite >= 0) {
@@ -107,16 +110,44 @@ export default function App() {
    setidPokemon(updated);
     window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
   };
-*/}
+   const updateTypePokemon = (name) => {
+    const updated = [...typePokemon];
+    const isFavorite = updated.indexOf(name);
+    if (isFavorite >= 0) {
+     updated.splice(isFavorite, 1);
+    } else {
+      updated.push(name);
+    }
+   setTypePokemon(updated);
+    window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
+  };
+  
+    const updateAbilityPokemon = (name) => {
+    const updated = [...abilityPokemon];
+    const isFavorite = updated.indexOf(name);
+    if (isFavorite >= 0) {
+     updated.splice(isFavorite, 1);
+    } else {
+      updated.push(name);
+    }
+   setAbilityPokemon(updated);
+    window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
+  };
+
+
   return (
     <DataPokemonProvider
     value={{
       favoritePokemons: favorites,
       ImagePokemons:imagePokemon,
-      //idPokemon:idPokemon,
+      idPokemon:idPokemon,
+      typePokemon:typePokemon,
+      abilityPokemon:abilityPokemon,
       updateInfoPokemon: updateFavoritePokemons,
       updateImagePokemon:updateImagePokemon,
-     // updateIdPokemon: updateIdPokemon,
+      updateIdPokemon: updateIdPokemon,
+      updateTypePokemon:updateTypePokemon,
+      updateabilityPokemon:updateAbilityPokemon,
     }}
   >
     <div>
@@ -137,6 +168,8 @@ export default function App() {
           pokemons={pokemons}
           page={page}
           setPage={setPage}
+          total={total}
+
         />
       )}
     </div>

@@ -1,15 +1,34 @@
 import React from "react";
 import Pokemon from "./Pokemon";
 import PokemonImage from "./PokemonImage";
+import Pagination from "./Pagination";
+
 import "../styles/index.scss";
 
 const Pokedex = (props) => {
-  const { pokemon, pokemons ,loading} = props;
+  const { pokemon, pokemons ,page, setPage, total ,loading} = props;
+  
+  const lastPage = () => {
+    const nextPage = Math.max(page - 1, 0);
+    setPage(nextPage);
+  };
 
+  const nextPage = () => {
+    const nextPage = Math.min(page + 1, 120 - 1);
+    setPage(nextPage);
+  };
 
   return (
     <div>
       <div className="header">
+      
+       <Pagination
+          page={page + 1}
+          totalPages={total}
+          onLeftClick={lastPage}
+          onRightClick={nextPage}
+        />
+      
         <h1>Pokedex</h1>
         
         <div className="Pokedex">

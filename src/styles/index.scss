@@ -118,6 +118,7 @@
 }
 .card-body{
   display: flex;
+flex-direction: column;
 }
 .searchbar-container {
   display: flex;
