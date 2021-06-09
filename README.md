@@ -14,3 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### Avaible page in the web 
 
 For this i use heroku for make  an deploy and you can search in the browser like this (https://poke-apis.herokuapp.com/)
+![alt text](https://i.imgur.com/GfGfvI6.png)
+![alt text](https://i.imgur.com/WMrwtp8.png)
+![alt text](https://i.imgur.com/2dcOCUa.png)
+
